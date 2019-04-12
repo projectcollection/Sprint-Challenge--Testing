@@ -1,11 +1,11 @@
-const express = require('express')
+const express = require('express');
 
-const gamesRouters = require('./gamesRouters/gamesRouters')
+const gamesRouters = require('./gamesRouters/gamesRouters');
 
-const app = express()
+const app = express();
 
-app.use(express.json())
+app.use(express.json());
 
-app.use('/games', gamesRouters)
+app.use('/games', gamesRouters);
 
-module.exports = app
+module.exports = app;
