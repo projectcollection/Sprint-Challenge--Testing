@@ -29,7 +29,7 @@ describe('app', () => {
                     releaseYear: 1985
                 })
                 .expect(200)
-        })
+        });
 
         test('should respond with json', () => {
             return request(app)
@@ -40,6 +40,29 @@ describe('app', () => {
                     releaseYear: 1985
                 })
                 .expect('Content-Type', /json/)
+        });
+    });
+
+    describe('GET /games', () => {
+        test('should respond with 200', () => {
+            return request(app)
+                .get('/games')
+                .expect(200)
+        });
+
+        test('should return with array if not records found', () => {
+            return request(app)
+                .get('/games')
+                .expect(200)
+                .then(res => {
+                    assert(res.body, [])
+                })
+        });
+
+        test('should return with json', () => {
+            return request(app)
+                .get('/games')
+                .expect('Content-Type', /json/)
         })
-    })
+    });
 })
